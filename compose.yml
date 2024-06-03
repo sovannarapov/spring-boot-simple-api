@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=runnerz
+      - POSTGRES_USER=runnerz
+      - POSTGRES_PASSWORD=runnerz
+    ports:
+      - 5433:5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - default
+
+volumes:
+  pg_data:
+    driver: local
