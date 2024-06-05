@@ -37,7 +37,7 @@ class InMemoryRunRepositoryTest {
     }
 
     @Test
-    void shouldFindAllRun() {
+    void shouldFindAllRuns() {
         List<Run> runs = repository.findAll();
         // message param display only when the test failed
         assertEquals(2, runs.size(), "Should have returned 2 runs");
