@@ -47,7 +47,7 @@ public class JdbcRunRepository implements RunRepository {
 
     public void delete(Integer id) {
         var updated = jdbcClient.sql("delete from run where id = :id")
-                .param(id)
+                .param("id", id)
                 .update();
 
         Assert.state(updated == 1, "Failed to delete run " + id);
@@ -63,7 +63,7 @@ public class JdbcRunRepository implements RunRepository {
 
     public List<Run> findByLocation(String location) {
         return jdbcClient.sql("select * from run where location = :location")
-                .param(location)
+                .param("location", location)
                 .query(Run.class)
                 .list();
     }
