@@ -71,7 +71,7 @@ class RunControllerIntTest {
     }
 
     @Test
-    void shouldUpdateRun() {
+    void shouldUpdateExistingRun() {
         Run run = new Run(
                 11,
                 "Updated Saturday Morning Run",
@@ -80,6 +80,8 @@ class RunControllerIntTest {
                 11,
                 Location.INDOOR
         );
+        Run existingRun = restClient.get().uri("/api/runs/11").retrieve().body(Run.class);
+        assertNotNull(existingRun);
         ResponseEntity<Void> updatedRun = restClient.put()
                 .uri("/api/runs/11")
                 .body(run)
