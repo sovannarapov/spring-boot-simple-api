@@ -10,7 +10,6 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 @SpringBootApplication
 public class Application {
-
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -21,5 +20,4 @@ public class Application {
 		HttpServiceProxyFactory factory = HttpServiceProxyFactory.builderFor(RestClientAdapter.create(restClient)).build();
 		return factory.createClient(UserHttpClient.class);
 	}
-
 }
