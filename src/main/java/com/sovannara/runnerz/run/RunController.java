@@ -10,13 +10,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/runs")
 public class RunController {
-//    // private instance variable
-//    private final InMemoryRunRepository runRepository;
-//    // constructor
-//    public RunControllerWithInMemory(InMemoryRunRepository inMemoryRunRepository) {
-//        this.inMemoryRunRepository = inMemoryRunRepository;
-//    }
-
     // private instance variable
     private final JdbcRunRepository runRepository;
     // constructor
@@ -41,7 +34,7 @@ public class RunController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/create")
+    @PostMapping
     void create(@RequestBody Run runDto) {
         runRepository.create(runDto);
     }
