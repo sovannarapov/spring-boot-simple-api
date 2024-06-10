@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @Repository
 public class JdbcRunRepository implements RunRepository {
-
     private final JdbcClient jdbcClient;
 
     public JdbcRunRepository(JdbcClient jdbcClient) {
